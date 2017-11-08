@@ -80,7 +80,7 @@ std::string create_rtsp_input(std::shared_ptr<t_config> &config) {
 std::string create_videotestsrc_input(std::shared_ptr<t_config> &config) {
   std::string launchCmd = "";
 
-  launchCmd += "videotestsrc ";
+  launchCmd += "videotestsrc is-live=true ";
   if (config->input.compare(0, 8, "pattern:") == 0) {
     launchCmd += "pattern=";
     launchCmd += config->input.substr(8);
