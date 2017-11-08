@@ -130,6 +130,7 @@ std::string create_pipeline(std::shared_ptr<t_config> &config) {
   }
 
   launchCmd += " ! rtph264pay name=pay0 pt=96 ";
+  launchCmd += " audiotestsrc is-live=true ! audio/x-raw,rate=8000,channels=1 ! voaacenc ! rtpmp4gpay name=pay1 pt=97 ";
   launchCmd += " )";
   return launchCmd;
 }
